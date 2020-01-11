@@ -92,6 +92,7 @@ app.use(function (req, res, next) {
     }
 });
 
+
 // Middleware to include the custom color local
 app.use(function (req, res, next) {
     let customColor1 = req.cookies["custom-color1"];
@@ -161,3 +162,6 @@ app.use(function(err, req, res, next) {
 app.locals.dataManager = dataManager;
 
 module.exports = app;
+
+app.listen(8080);
+console.log('8080 is the magic port');
