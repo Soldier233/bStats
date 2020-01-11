@@ -162,6 +162,3 @@ app.use(function(err, req, res, next) {
 app.locals.dataManager = dataManager;
 
 module.exports = app;
-
-app.listen(8080);
-console.log('8080 is the magic port');
