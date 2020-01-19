@@ -10,7 +10,7 @@ let cluster = null;
  */
 function getRedisCluster() {
     if (cluster === null) {
-        cluster = new Redis.Cluster(config.redis);
+        cluster = new Redis(6379, "192.168.10.102");
     }
     return cluster;
 }

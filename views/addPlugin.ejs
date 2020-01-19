@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="Add a plugin to bStats.">
+    <meta name="description" content="添加插件到 cStats">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Add plugin</title>
+    <title>cStats - 添加插件</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,7 +12,7 @@
           media="screen,projection"/>
     <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='http://recaptcha.net/recaptcha/api.js'></script>
 
     <style>
         body {
@@ -65,7 +65,7 @@
                         <div class="input-field col s12">
                             <input id="pluginName" type="text" name="pluginName"
                                    pattern="^[-_a-zA-Z0-9]+(\s[-_a-zA-Z0-9]+)*$" length="32" class="validate">
-                            <label for="pluginName" data-error="Invalid plugin name">Plugin name</label>
+                            <label for="pluginName" data-error="Invalid plugin name">插件名</label>
                         </div>
                     </div>
                     <div style="text-align: center">
@@ -76,7 +76,7 @@
                     <!-- Add plugin button -->
                     <div class='row'>
                         <button type='submit' name='btn_add_plugin' class='col s12 btn btn-large waves-effect <%= customColor1 %>'>
-                            Add plugin
+                            添加插件
                         </button>
                     </div>
                 </form>
