@@ -3,17 +3,11 @@
 <!--suppress CssUnknownProperty -->
 <html lang="en">
 <head>
-    <!-- Twitter stuff -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@btobastian" />
-    <meta name="twitter:title" content="bStats - Plugin Metrics made with <3" />
-    <meta name="twitter:description" content="bStats collects data for plugin authors. It's free and easy to use!" />
-    <meta name="twitter:image" content="https://bstats.org/images/Twitter.jpg" />
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="bStats global stats.">
+    <meta name="description" content="cStats全局统计">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Global <%= software.name %> stats</title>
+    <title>cStats - 全局 <%= software.name %> 统计</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,9 +27,9 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             <br><br>
-            <h1 class="header center <%= customColor1 %>-text truncate">Global stats</h1>
+            <h1 class="header center <%= customColor1 %>-text truncate">全局统计</h1>
             <div class="row center">
-                <h5 class="header col s12 light">Here are our fancy global stats for <%= software.name %></h5>
+                <h5 class="header col s12 light">这是 <%= software.name %> 的全局统计</h5>
             </div>
         </div>
     </div>
@@ -43,12 +37,12 @@
     <div class="row">
         <div class="col s12 m6 l4 offset-l2">
             <div class="card-panel <%= customColor1 %>">
-                <span class="white-text"><i class="material-icons left">storage</i><b id="serversBadge">Servers (Current/Record): loading...</b></span>
+                <span class="white-text"><i class="material-icons left">storage</i><b id="serversBadge">服务器 (当前/记录): 加载中...</b></span>
             </div>
         </div>
         <div class="col s12 m6 l4">
             <div class="card-panel <%= customColor1 %>">
-                <span class="white-text"><i class="material-icons left">people</i><b id="playersBadge">Players (Current/Record): loading...</b></span>
+                <span class="white-text"><i class="material-icons left">people</i><b id="playersBadge">玩家 (当前/记录): 加载中...</b></span>
             </div>
         </div>
     </div>

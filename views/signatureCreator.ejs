@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="description" content="You can create signatures images for plugins on this page.">
+    <meta name="description" content="你可以在这个网页上生成你的签名档">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Signature Creator</title>
+    <title>cStats - 签名档生成器</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -19,14 +19,14 @@
 <main>
     <div class="container row">
         <div class="section no-pad-bot" id="index-banner">
-            <h1 class="header center <%= customColor1 %>-text">Signature creator</h1>
+            <h1 class="header center <%= customColor1 %>-text">签名档生成器</h1>
             <div class="col s12 z-depth-1 grey lighten-4 row">
                 <br>
                 <!-- Select chart -->
                 <div class="input-field col s12">
                     <select id="select_chart">
                         <optgroup label="General">
-                            <option value="servers_and_players">Servers and Players</option>
+                            <option value="servers_and_players">服务器和玩家</option>
                         </optgroup>
                         <optgroup label="Charts">
                             <%
@@ -47,7 +47,7 @@
                     <div class="divider col s12" style="margin-bottom: 10px"></div>
                     <br>
                     <div class="switch col s12" style="margin-top: 0px">
-                        <b class="<%= customColor1 %>-text" style="font-size: 16px">Custom Title</b>
+                        <b class="<%= customColor1 %>-text" style="font-size: 16px">自定义标题</b>
                         <label>
                             <input id="custom_title_checkbox" type="checkbox">
                             <span class="lever"></span>
@@ -64,7 +64,7 @@
                     <div class="divider col s12" style="margin-top: 10px;"></div>
                     <br>
                     <div class="switch col s12" style="margin-top: 10px">
-                        <b class="<%= customColor1 %>-text" style="font-size: 16px">Custom Line Name</b>
+                        <b class="<%= customColor1 %>-text" style="font-size: 16px">自定义图例</b>
                         <label>
                             <input id="custom_line_checkbox" type="checkbox">
                             <span class="lever"></span>
@@ -72,7 +72,7 @@
                     </div>
                     <div id="line_name_div" class="input-field col s12" hidden>
                         <input id="line_name" type="text" class="validate">
-                        <label for="line_name">Line Name</label>
+                        <label for="line_name">图例</label>
                     </div>
                 </div>
 
@@ -82,21 +82,21 @@
                     <br>
                     <div class="input-field col s12" style="margin-top: 20px">
                         <select>
-                            <option value="1d">1 day</option>
-                            <option value="3d">3 days</option>
-                            <option value="1w" selected>1 week</option>
-                            <option value="2w">2 weeks</option>
-                            <option value="1m">1 month</option>
+                            <option value="1d">1天</option>
+                            <option value="3d">3天</option>
+                            <option value="1w" selected>1星期</option>
+                            <option value="2w">2星期</option>
+                            <option value="1m">1月</option>
                         </select>
-                        <label>Time to display</label>
+                        <label>显示时间</label>
                     </div>
                 </div>
 
                 <!-- Preview -->
                 <div id="preview">
-                    <div class="col s12"><b class="<%= customColor1 %>-text" style="font-size: 16px">Preview</b></div>
+                    <div class="col s12"><b class="<%= customColor1 %>-text" style="font-size: 16px">预览</b></div>
                     <div style="margin-left: 10px; margin-right: 10px;">
-                        <img src="/signatures/4.svg" alt="Signature image preview" style="width:100%;height:100%;border: 2px solid lightgrey;border-radius: 5px;">
+                        <img src="/signatures/4.svg" alt="签名预览" style="width:100%;height:100%;border: 2px solid lightgrey;border-radius: 5px;">
                     </div>
                     <br>
                 </div>
@@ -104,8 +104,8 @@
                 <!-- Not available -->
                 <div id="not_available" hidden>
                     <br><br>
-                    <h2 class="red-text center-align">Not available!</h2>
-                    <div class="center-align">You cannot create signature images for the selected chart.</div>
+                    <h2 class="red-text center-align">不可用</h2>
+                    <div class="center-align">你不能未你选择的图标创建签名档</div>
                     <br><br>
                 </div>
             </div>

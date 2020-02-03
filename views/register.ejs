@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="Create a new bStats account.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Register</title>
+    <title>cStats - 注册</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -12,7 +12,7 @@
           media="screen,projection"/>
     <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src='https://recaptcha.net/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             <% } else if (wrongCaptcha) { %>
             <h5 class="red-text col s12 center-align">请完成验证码</h5>
             <% } else { %>
-            <h5 class="<%= customColor1 %>-text col s12 center-align">Register an account</h5>
+            <h5 class="<%= customColor1 %>-text col s12 center-align">注册一个账号</h5>
             <% } %>
             <br><br>
             <div class="col s12 m8 l6 offset-m2 offset-l3 z-depth-1 grey lighten-4 row">
@@ -39,22 +39,22 @@
                         <div class="input-field col s12">
                             <input id="username" type="text" name="username"
                                    pattern="^[-_a-zA-Z0-9]+(\s[-_a-zA-Z0-9]+)*$" length="32" class="validate">
-                            <label for="username" data-error="Invalid username">Name</label>
+                            <label for="username" data-error="非法的用户名">用户名</label>
                         </div>
                     </div>
                     <!-- Password -->
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password" type="password" name="password">
-                            <label for="password">Password</label>
+                            <label for="password">密码</label>
                         </div>
                     </div>
                     <!-- Password confirm -->
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="password_confirm" type="password">
-                            <label for="password_confirm">Confirm password</label>
-                            <font class="red-text please_confirm" style="display: none;">Passwords do not match!</font>
+                            <label for="password_confirm">确认密码</label>
+                            <font class="red-text please_confirm" style="display: none;">密码不匹配</font>
                         </div>
                     </div>
                     <div style="text-align: center">
@@ -66,13 +66,13 @@
                     <div class='row'>
                         <a class='col s12 btn btn-large waves-effect <%= customColor1 %> disabled invalid_account'>Register</a>
                         <button type='submit' name='btn_register' class='col s12 btn btn-large waves-effect <%= customColor1 %> valid_account' style="display: none;">
-                            Register
+                            注册
                         </button>
                     </div>
                 </form>
             </div>
 
-            <a href="/login" class="col s12 center-align">Already have an account? Login!</a>
+            <a href="/login" class="col s12 center-align">已经有账号了？点我登录</a>
         </div>
     </div>
 </main>
