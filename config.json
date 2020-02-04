@@ -6,8 +6,8 @@
     }
   ],
   "recaptcha": {
-    "publicKey": "6LewINUUAAAAADdieMCNbNSmXDdhry9eQgLB2Z8r",
-    "secretKey": "6LewINUUAAAAABEH-zHysvk9qM2jI10vuHkIDwwE"
+    "publicKey": "abc",
+    "secretKey": "def"
   },
   "sessionSecret": "super secret session secret"
 }
