@@ -16,22 +16,22 @@
     <!-- Mobile navigation (hide on desktop) -->
     <% if (loggedIn) { %>
     <div class="hide-on-med-and-down">
-        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">near_me</i>Navigation</a></li>
-        <li><a href="/plugin/1337/random">Random plugin</a></li>
-        <li><a href="/plugin-list">Plugin list</a></li>
+        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">near_me</i>导航</a></li>
+        <li><a href="/plugin/1337/random">随机插件</a></li>
+        <li><a href="/plugin-list">插件列表</a></li>
         <li>
             <div class="divider"></div>
         </li>
     </div>
     <% } %>
     <div class="hide-on-large-only">
-        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">near_me</i>Navigation</a></li>
-        <li><a href="/plugin/1337/random">Random plugin</a></li>
-        <li><a href="/plugin-list">Plugin list</a></li>
+        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">near_me</i>导航</a></li>
+        <li><a href="/plugin/1337/random">随机插件</a></li>
+        <li><a href="/plugin-list">插件列表</a></li>
         <li>
             <div class="divider"></div>
         </li>
-        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">language</i>Global stats</a></li>
+        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">language</i>全局统计</a></li>
         <% for (var i = 0; i < allSoftware.length; i++) { %>
         <% if (allSoftware[i].globalPlugin) { %>
         <li><a href="/global/<%= allSoftware[i].url %>"><%= allSoftware[i].name %></a></li>
@@ -41,20 +41,20 @@
             <div class="divider"></div>
         </li>
     </div>
-    <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">person</i>Account</a></li>
+    <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">person</i>账号</a></li>
     <% if (loggedIn) { %>
-    <li><a class="waves-effect" href="/logout">Logout</a></li>
-    <li><a class="waves-effect" href="/add-plugin">Add plugin</a></li>
+    <li><a class="waves-effect" href="/logout">登出</a></li>
+    <li><a class="waves-effect" href="/add-plugin">添加插件</a></li>
     <% } else { %>
-    <li><a class="waves-effect" href="/login">Login</a></li>
-    <li><a class="waves-effect" href="/register">Create new account</a></li>
+    <li><a class="waves-effect" href="/login">登录</a></li>
+    <li><a class="waves-effect" href="/register">注册</a></li>
     <% } %>
     <% if (loggedIn && myPlugins.length > 0) { %>
     <div class="hide-on-large-only">
         <li>
             <div class="divider"></div>
         </li>
-        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">content_paste</i>My Plugins</a>
+        <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">content_paste</i>我的插件</a>
         </li>
         <% for (var i = 0; i < myPlugins.length; i++) { %>
         <li><a class="waves-effect truncate" href="/plugin/<%= myPlugins[i].software.url %>/<%= myPlugins[i].name %>"><%= myPlugins[i].name %> (<%= myPlugins[i].software.name %>)</a></li>
@@ -64,9 +64,7 @@
     <li>
         <div class="divider"></div>
     </li>
-    <li><a class="subheader"><i class="material-icons left" style="font-size: 30px">star</i>Credits</a></li>
-    <li><a class="waves-effect" href="https://fastvm.io/">FastVM</a></li>
-    <li><a class="waves-effect" href="/credits">Credits page</a></li>
+    <li><a class="waves-effect" href="https://fastvm.io/">洛神云</a></li>
 </ul>
 
 <!-- My plugins dropdown -->
@@ -90,10 +88,10 @@
 <!-- Account -->
 <ul id="dropdownAccount" class="dropdown-content">
     <% if (loggedIn) { %>
-    <li><a href="/logout" class="truncate <%= customColor1 %>-text">Logout</a></li>
+    <li><a href="/logout" class="truncate <%= customColor1 %>-text">登出</a></li>
     <% } else { %>
-    <li><a href="/register" class="truncate <%= customColor1 %>-text">Register</a></li>
-    <li><a href="/login" class="truncate <%= customColor1 %>-text">Login</a></li>
+    <li><a href="/register" class="truncate <%= customColor1 %>-text">注册</a></li>
+    <li><a href="/login" class="truncate <%= customColor1 %>-text">登录</a></li>
     <% } %>
 </ul>
 
@@ -105,28 +103,28 @@
         <ul class="right hide-on-med-and-down">
             <% if (loggedIn && myPlugins.length > 0) { %>
             <li><a href="/add-plugin">
-                    <i class="material-icons left" style="font-size: 30px">add</i>Add plugin
+                    <i class="material-icons left" style="font-size: 30px">add</i>添加插件
                 </a></li>
             <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-constrainwidth="false" data-hover="true" data-activates="dropdownMyPlugins">
-                    <i class="material-icons left" style="margin-right: 0px; font-size: 30px">arrow_drop_down</i>My Plugins
+                    <i class="material-icons left" style="margin-right: 0px; font-size: 30px">arrow_drop_down</i>我的插件
                 </a></li>
             <% } else if (loggedIn) { %>
             <li><a href="/add-plugin">
-                    <i class="material-icons left" style="font-size: 30px">add</i>Add plugin
+                    <i class="material-icons left" style="font-size: 30px">add</i>添加插件
                 </a></li>
             <% } else { %>
             <li><a href="/plugin/1337/random">
-                    <i class="material-icons left" style="font-size: 30px">shuffle</i>Random plugin
+                    <i class="material-icons left" style="font-size: 30px">shuffle</i>随机插件
                 </a></li>
             <% } %>
             <li><a href="/plugin-list">
-                    <i class="material-icons left" style="font-size: 30px">list</i>Plugin list
+                    <i class="material-icons left" style="font-size: 30px">list</i>插件列表
                 </a></li>
             <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-hover="true" data-activates="dropdownGlobalStats">
-                    <i class="material-icons left" style="font-size: 30px">language</i>Global stats
+                    <i class="material-icons left" style="font-size: 30px">language</i>全局统计
                 </a></li>
             <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-hover="true" data-activates="dropdownAccount">
-                    <i class="material-icons left" style="font-size: 30px">account_circle</i>Account
+                    <i class="material-icons left" style="font-size: 30px">account_circle</i>账号
                 </a></li>
         </ul>
 

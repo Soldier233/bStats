@@ -34,7 +34,7 @@ router.post('/', function (req, res, next) {
     // Put your secret key here.
     let secretKey = config.recaptcha.secretKey;
     // request.connection.remoteAddress will provide IP address of connected user.
-    let verificationUrl = 'https://www.google.com/recaptcha/api/siteverify?secret=' + secretKey + '&response=' + req.body['g-recaptcha-response'] + '&remoteip=' + req.connection.remoteAddress;
+    let verificationUrl = 'https://recaptcha.net/recaptcha/api/siteverify?secret=' + secretKey + '&response=' + req.body['g-recaptcha-response'] + '&remoteip=' + req.connection.remoteAddress;
     // Hitting GET request to the URL, Google will respond with success or error scenario.
     request(verificationUrl, function(error, r, body) {
         try {

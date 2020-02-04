@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="bStats collects data for plugin authors. Get started now!">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Getting started</title>
+    <title>cStats - 开始</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,82 +15,82 @@
 
 <% include ../templates/navigation.ejs %>
 <main>
-<div class="container">
+    <div class="container">
 
-    <br>
-    <div class="row">
-        <div class="col s12">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Getting started</span>
-                    <p>
-                        bStats is a free and open source website that helps you to collect usage data for your Bukkit, Spigot,
-                        Bungeecord or Sponge plugin. Integrating bStats into your plugin is straight forward and done
-                        in a matter of seconds. Detailed instructions can be found on the <a href="/getting-started/include-metrics">Include Metrics</a> site.
-                        <br>
-                        After adding bStats to your plugin you have to create an account to register your plugin.
-                        You can manage your plugins with this account, e.g. adding customs graphs, etc.
-                    </p>
-                </div>
-                <div class="card-action">
-                    <a href="/getting-started/include-metrics">Include Metrics</a>
-                    <% if (loggedIn) { %>
-                    <a href="/add-plugin">Add Plugin</a>
-                    <% } else { %>
-                    <a href="/register">Registration</a>
-                    <% } %>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">What data is collected?</span>
-                    bStats does not collect any personal data. Most of the collected data is information about
-                    the plugin's server like player count, online mode, Minecraft version, Java version, and more.
-                    All data gets send and stored completely anonymous. Sever IPs are only stored for ratelimiting
-                    and not linked to the data.
-                    <br/>
-                    All data that is collected is publicly visible. If you are interested in what data is collected
-                    for your Minecraft server, you can just look at the pages for the plugins on your server.
-                    Please note that plugin authors can also send data that is customized for their plugin.
-                    </p>
+        <br>
+        <div class="row">
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">开始</span>
+                        <p>
+                            bStats是一个免费的开源网站，可以帮助您收集Bukkit、Spigot、
+                            Bungeecord或海绵插件。将bStats集成到您的插件中非常简单，
+                            在几秒钟内。详细的说明可以在 <a href="/getting-started/include-metrics">添加统计</a> 站点上找到。
+                            <br>
+                            将bStats添加到您的插件后，您必须创建一个帐户来注册您的插件。
+                            您可以管理您的插件与此帐户，如添加海关图等。
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/getting-started/include-metrics">包括的指标</a>
+                        <% if (loggedIn) { %>
+                            <a href="/add-plugin">添加插件</a>
+                        <% } else { %>
+                            <a href="/register">注册</a>
+                        <% } %>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Custom Graphs</span>
-                    <p>
-                        bStats supports the creation of custom graphs. Take a look at the examples to get a
-                        feel how creating custom graphs works. You may also like to check out our REST api.
-                    </p>
-                </div>
-                <div class="card-action">
-                    <a href="/help/custom-charts">Examples</a>
-                    <a href="/help/rest-api">REST Api</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m6">
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Disabling bStats</span>
-                    <p>
-                        If you don't want bStats to collect data from your server, you can disable it in the bStats
-                        config file. This file can be found in the <i>/plugins/bStats/</i> folder.
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">什么数据将被收集?</span>
+                        cStats不收集任何个人数据。收集的数据大部分是关于
+                        插件的服务器像播放器计数，在线模式，Minecraft版本，Java版本，等等。
+                        所有数据的发送和存储都是完全匿名的。服务器ip只存储为速率限制。
+                        而且与数据无关。
                         <br/>
-                        bStats has nearly no effect on your server's performance and the sent data is completely
-                        anonymous. The collected data is important information for plugin authors to improve their
-                        plugins and keep motivated. To value their work and effort, please keep bStats enabled.
-                    </p>
+                        所有收集的数据都是公开可见的。如果您对收集什么数据感兴趣
+                        对于Minecraft服务器，您可以查看服务器上插件的页面。
+                        请注意，插件作者也可以发送为他们的插件定制的数据。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">自定义图形</span>
+                        <p>
+                            cStats支持创建自定义图。看一看示例，了解如何创建自定义图。
+                            你也可以看看我们的api。
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="/help/custom-charts">例子</a>
+                        <a href="/help/rest-api">Api</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">禁用 bStats</span>
+                        <p>
+                            如果不希望cStats从服务器收集数据，可以在cStats配置文件中禁用它。
+                            这个文件可以在 <i>/plugins/cStats/</i> 文件夹中找到。
+                            <br/>
+                            bStats对服务器的性能几乎没有影响，发送的数据是完整的、
+                            匿名的。收集到的数据是插件作者改进他们的重要信息
+                            插件和保持动力。为了评估他们的工作和努力，请保持cStats启用。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </main>
 <% include ../templates/footer.ejs %>
 
