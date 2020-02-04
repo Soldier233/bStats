@@ -8,7 +8,7 @@ const request = require('request');
 const async = require('async');
 
 /* GET add plugin page. */
-router.get('/', function (req, res, next) {
+router.get('/', function(req, res, next) {
 
     if (req.user === undefined) {
         res.redirect('/login');
@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* POST add plugin */
-router.post('/', function (req, res, next) {
+router.post('/', function(req, res, next) {
     if (req.user === undefined) {
         res.redirect('/login');
         return;
@@ -51,12 +51,12 @@ router.post('/', function (req, res, next) {
     }
 
     async.waterfall([
-        function (callback) {
+        function(callback) {
             dataManager.getSoftwareById(softwareId, ['name', 'url', 'globalPlugin', 'defaultCharts'], function (err, software) {
                 callback(err, software);
             });
         },
-        function (software, callback) {
+        function(software, callback) {
             if (software === null || (software.globalPlugin === null && !req.user.admin)) {
                 res.redirect('/add-plugin');
                 return;
@@ -69,13 +69,13 @@ router.post('/', function (req, res, next) {
 
             // The Google Captcha secret key
             let secretKey = config.recaptcha.secretKey;
-            let verificationUrl = 'https://recaptcha.net/recaptcha/api/siteverify?secret=' + secretKey + '&response=' + req.body['g-recaptcha-response'] + '&remoteip=' + req.connection.remoteAddress;
+            let verificationUrl = 'https://www.google.com/recaptcha/api/siteverify?secret=' + secretKey + '&response=' + req.body['g-recaptcha-response'] + '&remoteip=' + req.connection.remoteAddress;
 
-            request(verificationUrl, function (err, r, body) {
+            request(verificationUrl, function(err, r, body) {
                 callback(err, software, body);
             });
         },
-        function (software, verificationBody, callback) {
+        function(software, verificationBody, callback) {
             try {
                 verificationBody = JSON.parse(verificationBody);
             } catch (err) {

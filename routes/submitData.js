@@ -51,13 +51,10 @@ router.post('/:software?', function(request, response, next) {
             // Get the ip
             // We use CloudFlare so the cf-connecting-ip header can be trusted
             let ip = (request.connection.remoteAddress ? request.connection.remoteAddress : request.remoteAddress);
-            /*
             if (typeof request.headers['cf-connecting-ip'] !== 'undefined')
             {
                 ip = request.headers['cf-connecting-ip'];
             }
-
-             */
             ratelimiter.isLimited(ip, software.url, software.maxRequestsPerIp, function (err, res) {
                 callback(err, software, serverUUID, res);
             });
