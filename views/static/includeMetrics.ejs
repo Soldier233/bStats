@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="A description on how to include bStats to your plugin">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Include metrics</title>
+    <title>cStats - 加入统计</title>
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -13,7 +13,11 @@
     <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
     <style>
-        .withBox { outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+        .withBox {
+            outline: 1px solid #ccc;
+            padding: 5px;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
@@ -23,21 +27,22 @@
     <div class="container">
         <br>
         <% if (addedPlugin) { %>
-        <div class="col s12">
-            <div class="card">
-                <div class="card-content">
-                    <b>You successfully added your plugin!</b><br>
-                    If you haven't done it already you now have to add bStats to your plugin.
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <b>你成功添加了插件</b><br>
+                        如果你还没有添加统计代码到你的代码的话，请查看下方帮助
+                    </div>
                 </div>
             </div>
-        </div>
         <% } %>
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <p>Including bStats is very easy. There are basically two ways to include bStats:</p>
+                    <p>目前只支持手动添加Metrics类到你的代码中</p>
                     <ul class="collapsible" data-collapsible="accordion">
                         <li>
+                            <!--
                             <div class="collapsible-header"><i class="material-icons">code</i>Using Maven to shade bStats</div>
                             <div class="collapsible-body">
                                 <div style="margin-left: 10px; margin-top: 4px; margin-right: 10px;">
@@ -160,71 +165,73 @@
 &lt;/project&gt;</code></pre>
                                 </div>
                             </div>
-                        </li>
+                        </li>-->
                         <li>
-                            <div class="collapsible-header"><i class="material-icons">code</i>Manually copy the Metrics class</div>
+                            <div class="collapsible-header"><i class="material-icons">code</i>手动添加Metrics到你的代码中</div>
                             <div class="collapsible-body">
                                 <div style="margin-left: 10px; margin-top: 4px; margin-right: 10px;">
-                                    If you don't want to use Maven that's no problem. You can just copy and paste the required class into your project.
-                                    All classes can be found in the <a href="https://github.com/Bastian/bStats-Metrics">GitHub repository</a>.<br>
-                                    Just copy the class fitting your server software.
-                                    Make sure to change the package from <i>org.bstats</i> to your own package.<br>
+                                    你可以将下方的类复制到你的项目中来接入cStats
+                                    所有代码都可以在<a href="https://github.com/Soldier233/bStats-Metrics">GitHub</a>找到<br>
+                                    请确保把我们的包名 <i>com.iroselle.cstats</i>改为你自己的包名<br>
                                     <div style="overflow-x:auto;">
                                         <div style="min-width: 300px">
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th data-field="id">Software</th>
-                                                    <th data-field="name">Standard</th>
-                                                    <th data-field="price">Lite Version</th>
+                                                    <th data-field="id">服务的软件</th>
+                                                    <th data-field="name">标准版</th>
+                                                    <th data-field="price">精简版</th>
                                                 </tr>
                                                 </thead>
 
                                                 <tbody>
                                                 <% for (var i = 0; i < software.length; i++) { %>
-                                                <% if (software[i].metricsClass !== null && software[i].name !== 'Sponge') { %>
-                                                <tr>
-                                                    <td><b><%= software[i].name %></b></td>
-                                                    <td><a href="<%= software[i].metricsClass %>" target="_blank">Metrics.java</a></td>
-                                                    <td><a href="<%= software[i].metricsClass.replace("/src/main/java", "-lite/src/main/java").replace('Metrics.java', 'MetricsLite.java') %>" target="_blank">MetricsLite.java</a></td>
-                                                </tr>
-                                                <% } %>
+                                                    <% if (software[i].metricsClass !== null && software[i].name !== 'Sponge') { %>
+                                                        <tr>
+                                                            <td><b><%= software[i].name %></b></td>
+                                                            <td><a href="<%= software[i].metricsClass %>"
+                                                                   target="_blank">Metrics.java</a></td>
+                                                            <td>
+                                                                <a href="<%= software[i].metricsClass.replace("/src/main/java", "-lite/src/main/java").replace('Metrics.java', 'MetricsLite.java') %>"
+                                                                   target="_blank">MetricsLite.java</a></td>
+                                                        </tr>
+                                                    <% } %>
                                                 <% } %>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    Manually copying the metric class is not supported for Sponge!
+                                    手动添加代码到Sponge插件暂不支持
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    After adding the Metrics class to your plugin, you now have to initialise the class.
-                    How this is done depends on the server software you are using.<br>
-                    Just take a look at the examples for your server software:
+                    将Metrics类添加到你的项目中之后，你需要手动初始化
+                    不同的服务端软件，初始化方式不同<br>
+                    你可以查看不同服务端软件的demo
                     <table>
                         <thead>
                         <tr>
-                            <th data-field="id">Software</th>
-                            <th data-field="name">Example</th>
+                            <th data-field="id">服务端软件</th>
+                            <th data-field="name">例子</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <% for (var i = 0; i < software.length; i++) { %>
-                        <% if (software[i].examplePlugin !== null) { %>
-                        <tr>
-                            <td><b><%= software[i].name %></b></td>
-                            <td><a href="<%= software[i].examplePlugin %>" target="_blank">ExamplePlugin.java</a></td>
-                        </tr>
-                        <% } %>
+                            <% if (software[i].examplePlugin !== null) { %>
+                                <tr>
+                                    <td><b><%= software[i].name %></b></td>
+                                    <td><a href="<%= software[i].examplePlugin %>"
+                                           target="_blank">ExamplePlugin.java</a></td>
+                                </tr>
+                            <% } %>
                         <% } %>
                         </tbody>
                     </table>
-                    You may notice all examples also include a very basic example on how to use custom charts. You can
-                    find a detailed tutorial on how to use them <a href="/help/custom-charts">here</a>. If you don't need
-                    custom charts you can (but not have to) use the lite version of the Metrics class, too, which is called
-                    <i>MetricsLite</i>.
+                    你可能发现了所有demo都添加了一个基本图表
+                    在 <a href="/help/custom-charts">教程</a> 中来查看如何使用。如果你不需要使用自定义图表
+                    你可以使用<i>精简版</i>。
                 </div>
             </div>
         </div>
