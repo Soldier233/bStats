@@ -160,7 +160,7 @@
         for (let i = 0; i < data.length; i++) {
             record = data[i][1] > record ? data[i][1] : record;
         }
-        $('#playersBadge').html(`Players (Current/Record): ${current} / ${record}`);
+        $('#playersBadge').html(`玩家 (当前/记录): ${current} / ${record}`);
     }
 
     function updateServersBadge(data) {
@@ -169,7 +169,7 @@
         for (let i = 0; i < data.length; i++) {
             record = data[i][1] > record ? data[i][1] : record;
         }
-        $('#serversBadge').html(`Servers (Current/Record): ${current} / ${record}`);
+        $('#serversBadge').html(`服务器 (当前/记录): ${current} / ${record}`);
     }
 </script>
 
