@@ -4,10 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="description" content="Examples for custom charts.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>bStats - Custom Charts</title>
+    <title>cStats - 自定义图表</title>
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://static.zhanshi123.me/cstats/css/icon.css" rel="stylesheet">
     <link href="/stylesheets/materialize.min.css" type="text/css" rel="stylesheet"
           media="screen,projection"/>
     <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -21,39 +21,37 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <h3 class="center <%= customColor1 %>-text">Basics</h3>
-                    Adding charts to your plugin consists of two parts:<br>
+                    <h3 class="center <%= customColor1 %>-text">基础</h3>
+                    添加自定义图表到你的插件中包含2个步骤<br>
                     <ul class="browser-default" style="padding-left: 25px">
-                        <li>Adding charts to your code</li>
-                        <li>Adding charts on the website</li>
+                        <li>添加代码到你的插件中</li>
+                        <li>在网站上新建图表</li>
                     </ul>
-                    To add a chart on the website, login and click on the Edit-button on your plugin page:
+                    你需要登录并点击在你的插件页面的编辑按钮
                     <br>
-                    <img src="https://i.imgur.com/dhUF0zc.png" style="border:1px solid gray;width:100%;height:100%;max-width:373px;max-height:135px">
+                    <img src="https://static.zhanshi123.me/cstats/1.png" style="border:1px solid gray;width:100%;height:100%;max-width:373px;max-height:135px">
                     <br>
-                    and add your chart:
+                    然后添加你的图表
                     <br>
-                    <img src="https://i.imgur.com/DKbsXZ9.png" style="border:1px solid gray;width:100%;height:100%;max-width:1183px;max-height:497px">
+                    <img src="https://static.zhanshi123.me/cstats/1.png" style="border:1px solid gray;width:100%;height:100%;max-width:1183px;max-height:497px">
                     <br>
-                    Pretty easy, isn't it?
+                    由图可见非常容易
                 </div>
             </div>
         </div>
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <h3 class="center <%= customColor1 %>-text">Pies</h3>
+                    <h3 class="center <%= customColor1 %>-text">饼状图</h3>
                     <div class="row">
                         <div id="onlineMode" class="col s12">
                             <div id="onlineModePie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
                         </div>
                     </div>
-                    A <b>Simple Pie</b> is the most basic chart type. It's a great option for config settings as it only accepts
-                    one value per server. Adding the chart to your code is fairly easy:
+                    <b>简单饼状图</b>是一种最基础的图表。对于一个服务器一个值的图表来说，是非常好的选择。添加代码到你的插件中非常简单
                     <script src="https://gist.github.com/Bastian/6ed19dae0322881af4f3dab87075397f.js"></script>
-                    If you need a pie with more options there's the <b>Advanced Pie</b> which allows you to send more than one value.
-                    You can also give the values different 'weights'. There are very few cases in which you need this type of pie, so
-                    I'm sorry for this bad example:
+                    如果你需要一个有更多信息的饼状图，可以使用<b>高级饼状图</b>,
+                    你可以给不同的值不同的'权重'。但是这只有极少数情况需要这种图标，下面是一个不恰当的例子
                     <script src="https://gist.github.com/Bastian/b47279b4ff792153480b50ad0945c963.js"></script>
                 </div>
             </div>
@@ -61,15 +59,13 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <h3 class="center <%= customColor1 %>-text">Drilldown Pies</h3>
+                    <h3 class="center <%= customColor1 %>-text">下钻式饼状图(原文:Drilldown Pie 实在没有合适的中文来翻译，所以暂且译作 下钻式饼状图)</h3>
                     <div class="row">
                         <div id="os" class="col s12">
                             <div id="osPie" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
                         </div>
                     </div>
-                    A <b>Drilldown Pie</b> is the most fancy pie chart. It's a great choice for displaying complex data which
-                    would look like a mess, if a normal pie would be used. Creating one is sadly a little bit ugly, because
-                    of it's complexity:
+                    <b>下钻式饼状图</b>是最6的一种饼状图，他对于展示复杂数据来说是个非常棒的选择，相反，如果使用一般的饼状图，则会展示得一团糟。因为他的复杂性，所以创建它的代码看起来会有点呆
                     <script src="https://gist.github.com/Bastian/b35de0cfe951f2d7cacabf65762bfb3d.js"></script>
                 </div>
             </div>
@@ -77,36 +73,33 @@
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <h3 class="center <%= customColor1 %>-text">Line Charts</h3>
+                    <h3 class="center <%= customColor1 %>-text">折线图</h3>
                     <div class="row">
                         <div id="players">
                             <div id="playersLineChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
                         </div>
                     </div>
-                    A <b>Single Line Chart</b> is exactly what the name says: A line chart with only one line. An example for
-                    this type of chart is the servers or players chart every plugin has. Implementing a Single Line Chart is
-                    as simple as implementing a Simple Pie chart:
+                    <b>单线折线图</b>正如它的名字一样:一个只有一条线的折线图。这种图表的例子是，每个插件的用数量和玩家数量。实现单线折线图的代码和简单饼状图的代码一样简单
                     <script src="https://gist.github.com/Bastian/ea8804db0479c539153f53f1561cc7d3.js"></script>
-                    Now it's your turn. What do you think is a <b>Multi Line Chart</b>? Right! A line chart with multiple lines:
+                    现在是你的回合，你认为<b>多线折线图</b>是什么？对！多线折线图是一个由很多条线的折线图（译者注：这不是废话嘛。。）
                     <script src="https://gist.github.com/Bastian/4445ea82bc921dfef82de90b535deb3e.js"></script>
-                    (Note: Multi Line Charts are still in development)
+                    (注意: 多线折线图还在开发中)
                 </div>
             </div>
         </div>
         <div class="col s12">
             <div class="card">
                 <div class="card-content">
-                    <h3 class="center <%= customColor1 %>-text">Bar charts</h3>
+                    <h3 class="center <%= customColor1 %>-text">柱状图</h3>
                     <div class="row">
                         <div id="example" class="col s12">
                             <div id="exampleBar" style="min-width: 310px; margin: 0 auto"></div>
                         </div>
                     </div>
-                    <p>A <b>Simple Bar Chart</b> represents a bar chart, where each category only has 1 bar. The
-                    first value of the map is the category name and the second value of the map is the value of the bar (most of the time you want it to be 1).</p>
-                    <p>An <b>Advanced Bar Chart</b> represents a bar chart, where each category can have multiple bars (defined at the creation).
-                    The first value of the map is the category name and the second value of the map are the values for the bars.
-                    The example you can see above is an advanced pie chart.</p>
+                    <p>一个<b>简单柱状图</b>代表一种只有一个分类的柱状图。在这个Map中的K是分类名，V是数值（大多数情况下你希望是1）</p>
+                    <p>一个<b>高级柱状图</b>代表一种每种分类都可以有多个柱状图的图表（在创建时需要定义）
+                    Map中的K是分类名，V是每个柱状图的数值的Map（同简单柱状图）
+                    下面是一个例子</p>
                     <script src="https://gist.github.com/Bastian/474cf7eb3c2997d3cab73e560dce0caa.js"></script>
                 </div>
             </div>

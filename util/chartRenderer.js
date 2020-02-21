@@ -15,7 +15,6 @@ function renderPluginImage(pluginId, options, callback) {
         }
         dataManager.getChartByPluginIdAndChartId(pluginId, 'servers', ['type', 'title', 'data'], function (err, servers) {
             if (err) {
-                console.log(err)
                 return callback(err);
             }
             if (players === null || servers === null) {
@@ -27,17 +26,17 @@ function renderPluginImage(pluginId, options, callback) {
 
             options.title = options.title || 'No title';
 
-            dataManager.getLimitedLineChartData(servers.uid, 1, options.maxElements || 2*24*7, function (err, serverData) {
+            dataManager.getLimitedLineChartData(servers.uid, 1, options.maxElements || 2 * 24 * 7, function (err, serverData) {
                 if (err) {
                     return callback(err);
                 }
-                dataManager.getLimitedLineChartData(players.uid, 1, options.maxElements || 2*24*7, function (err, playerData) {
+                dataManager.getLimitedLineChartData(players.uid, 1, options.maxElements || 2 * 24 * 7, function (err, playerData) {
                     if (err) {
                         return callback(err);
                     }
                     options.lineName = [
-                        playerData[playerData.length-1][1] + ' ' + players.data.lineName,
-                        serverData[serverData.length-1][1] + ' ' + servers.data.lineName
+                        playerData[playerData.length - 1][1] + ' ' + players.data.lineName,
+                        serverData[serverData.length - 1][1] + ' ' + servers.data.lineName
                     ];
                     data = [playerData, serverData];
                     renderMultiLineChart(options, data, callback);
@@ -66,7 +65,7 @@ function renderChartImage(chartUid, options, callback) {
 
         switch (chart.type) {
             case 'single_linechart':
-                dataManager.getLimitedLineChartData(chart.uid, 1, options.maxElements || 2*24*7, function (err, data) {
+                dataManager.getLimitedLineChartData(chart.uid, 1, options.maxElements || 2 * 24 * 7, function (err, data) {
                     if (err) {
                         return callback(err);
                     }
@@ -139,7 +138,7 @@ function renderSingleLineChart(options, data, callback) {
 
             credits: {
                 text: fileName,
-                style: { "cursor": "pointer", "color": "#999999", "fontSize": "13px" }
+                style: {"cursor": "pointer", "color": "#999999", "fontSize": "13px"}
             },
 
             chart: {
@@ -147,13 +146,13 @@ function renderSingleLineChart(options, data, callback) {
                 height: options.height || 300
             },
 
-            title : {
-                text : options.title || ''
+            title: {
+                text: options.title || ''
             },
 
-            series : [{
-                name : options.lineName || '',
-                data : data,
+            series: [{
+                name: options.lineName || '',
+                data: data,
                 type: 'area',
                 tooltip: {
                     valueDecimals: 0
@@ -169,17 +168,17 @@ function renderSingleLineChart(options, data, callback) {
         if (err) {
             return callback(err);
         }
-        fs.readFile(path.resolve(__dirname + '/../' + fileName), 'utf8', function(err, contents) {
+        fs.readFile(path.resolve(__dirname + '/../' + fileName), 'utf8', function (err, contents) {
             if (err) {
                 return callback(err);
             }
-            fs.unlink(path.resolve(__dirname + '/../' + fileName), function(err) {
+            fs.unlink(path.resolve(__dirname + '/../' + fileName), function (err) {
                 if (err) {
                     console.log(err);
                 }
             });
             contents = contents.replace(fileName, '<a xlink:href="https://bStats.org/" xlink:title="bStats.org" xlink:show="new">View full stats at bStats.org</a>');
-            callback(null, { result: contents });
+            callback(null, {result: contents});
         });
     });
 }
@@ -194,7 +193,7 @@ function renderSingleLineChart(options, data, callback) {
 function renderMultiLineChart(options, data, callback) {
     let fileName = uuidv4() + '.svg';
     let exportSettings = {
-        outfile: fileName,
+        fileName: fileName,
         type: 'svg',
         options: {
             yAxis: {
@@ -236,7 +235,7 @@ function renderMultiLineChart(options, data, callback) {
 
             credits: {
                 text: fileName,
-                style: { "cursor": "pointer", "color": "#999999", "fontSize": "13px" }
+                style: {"cursor": "pointer", "color": "#999999", "fontSize": "13px"}
             },
 
             chart: {
@@ -244,11 +243,11 @@ function renderMultiLineChart(options, data, callback) {
                 height: options.height || 300
             },
 
-            title : {
-                text : options.title || ''
+            title: {
+                text: options.title || ''
             },
 
-            series : []
+            series: []
         },
         globalOptions: JSON.stringify({
             colors: options.colors || ["#F44336", "#2196F3", "#4CAF50", "#FF9800", "#FFEB3B", "#009688",
@@ -258,29 +257,32 @@ function renderMultiLineChart(options, data, callback) {
 
     for (let i = 0; i < data.length; i++) {
         exportSettings.options.series.push({
-                name : options.lineName[i] || '',
-                data : data[i],
-                type: 'area',
-                tooltip: {
-                    valueDecimals: 0
-                }
-            });
+            name: options.lineName[i] || '',
+            data: data[i],
+            type: 'area',
+            tooltip: {
+                valueDecimals: 0
+            }
+        });
     }
+
+    //TODO 无法导出图片 不会调用fn
     exporter.export(exportSettings, function (err) {
         if (err) {
             return callback(err);
         }
-        fs.readFile(path.resolve(__dirname + '/../' + fileName), 'utf8', function(err, contents) {
+        console.log(__dirname + '/../' + fileName);
+        fs.readFile(path.resolve(__dirname + '/../' + fileName), 'utf8', function (err, contents) {
             if (err) {
                 return callback(err);
             }
-            fs.unlink(path.resolve(__dirname + '/../' + fileName), function(err) {
+            fs.unlink(path.resolve(__dirname + '/../' + fileName), function (err) {
                 if (err) {
                     console.log(err);
                 }
             });
-            contents = contents.replace(fileName, '<a xlink:href="https://bStats.org/" xlink:title="bStats.org" xlink:show="new">View full stats at bStats.org</a>');
-            callback(null, { result: contents });
+            contents = contents.replace(fileName, '<a xlink:href="https://cstats.iroselle.com/" xlink:title="cStats" xlink:show="new">View full stats at bStats.org</a>');
+            callback(null, {result: contents});
         });
     });
 }

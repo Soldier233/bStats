@@ -15,7 +15,6 @@ router.get('/:software/:plugin.:ext', function(req, res, next) {
     if (typeof ext !== 'string' || ext.toLowerCase() !== 'svg') {
         return writeResponse(404, {error: 'Invalid file type'}, res);
     }
-
     dataManager.getPluginBySoftwareUrlAndName(software, pluginName, ['name', 'software', 'owner'], function (err, plugin) {
         if (err) {
             console.log(err);
@@ -24,7 +23,6 @@ router.get('/:software/:plugin.:ext', function(req, res, next) {
         if (plugin === null) {
             return writeResponse(404, {error: 'Unknown plugin'}, res);
         }
-
         // Check if the image is already cached
         let tms2000 = timeUtil.dateToTms2000(new Date()) - 1;
         databaseManager.getRedisCluster().get(`signature.cache:${tms2000}.${plugin.id}`, function (err, cachedImage) {
